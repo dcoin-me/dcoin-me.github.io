@@ -1,0 +1,46 @@
+
+.navbar-fixed-top {
+   position: relative;
+}
+*{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;  
+}
+
+.my_logo{
+  display: block;
+  background: url(../logo.png) center left no-repeat;
+  text-align: center;
+  background-size: 30px 30px;
+  padding-left: 40px; margin-left: 15px; margin-right: 50px;
+}
+
+.h1_head {
+  margin-bottom:30px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-size: 5em;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif; 
+  font-weight: 700;
+  color: #fff;
+}
+
+.soc_buttons{
+    position:fixed; top:130px; left:0px; width:40px; margin-left:5px
+}
+
+.soc_fb{
+  display: inline-block;width:40px; height:40px; background-image: url('../social.png'); background-position: 0px 0px;
+}
+.soc_twitter{
+  display: inline-block;width:40px; height:40px; background-image: url('../social.png'); background-position: -42px 0px;
+}
+.soc_g_plus{
+  display: inline-block;width:40px; height:40px; background-image: url('../social.png'); background-position: -252px 0px;
+}
+.soc_digg{
+  display: inline-block;width:40px; height:40px; background-image: url('../social.png'); background-position: -630px 0px;
+}
+.soc_linkedIn{
+  display: inline-block;width:40px; height:40px; background-image: url('../social.png'); background-position: -1512px 0px;
+}
+
+

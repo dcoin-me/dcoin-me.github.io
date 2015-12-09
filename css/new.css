@@ -1,0 +1,180 @@
+.my_logo{
+  display: block;
+  background: url(http://dcoin.club/logo.png) center left no-repeat;
+  text-align: center;
+  background-size: 80px 80px;
+  padding-left: 40px; margin-left: 15px; margin-right: 50px;
+}
+header {
+	padding: 1rem 6rem;
+	border-bottom: 3px solid #f0f0f0;
+}
+
+body {
+	font-family: 'Oxygen', 'helvetica-neue', 'helvetica', 'arial', sans-serif;
+	font-weight: 300;
+	color: #535353;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+.container {
+	margin: 0 auto;
+	max-width: 960px;
+	padding-top: 56px;
+}
+
+.screenshot {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 458px;
+}
+
+.column-adjust-top-margin {
+	margin-top: -8rem;
+}
+
+.container input {
+	margin-bottom: 3rem;
+}
+
+.container textarea {
+	margin-bottom: 3rem;
+	height: 200px;
+}
+
+.social-media {
+	margin-top: 4rem;
+	padding: 4rem 0;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+.share-btns img{
+	margin: 0 1rem;
+}
+
+.share-btns a {
+	text-decoration: none;
+}
+
+#footer {
+	margin: 0 auto;
+	padding: 0 21px;
+	max-width: 960px;
+	font-size: 21px;
+	line-height: 21px;
+	height: 21px;
+}
+
+#footer a {
+	text-decoration: none;
+}
+
+#footer .lhs {
+	float: left;
+}
+
+#footer .rhs {
+	float: right;
+}
+
+#footer-wrapper {
+	background: #f3f3f4;
+	margin-top: 60px;
+	padding: 44px 0;
+	color: #6d6d6d;
+}
+
+
+
+.btn-success {
+	background: #2ecc71;
+}
+.btn-success:hover {
+	background: #26b864;
+}
+
+.button-inner {
+	height: 46px;
+	line-height: 46px;
+	display: block;
+	font-size: 18px;
+	text-decoration: none;
+	padding: 0px 80px 0px 79px;
+}
+
+.inbetween {
+	height: 162px;
+}
+
+.inbetween-sm {
+	height: 81px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Oxygen', 'helvetica-neue', 'helvetica', 'arial', sans-serif;
+}
+
+h1 {
+	font-weight: 300;
+	font-size: 46px;
+	padding: .5rem 0;
+}
+
+p {
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 1.5;
+	padding: .5rem 0;
+}
+
+.referral {
+	font-size: 24px;
+}
+
+.user-table {
+	width: 100%;
+}
+.user-table thead tr {
+	background-color: #dddddd;
+}
+.user-table tbody tr:nth-child(even) {
+	background-color: #eeeeee;
+}
+
+/* MOBILE STYLES */
+@media screen and (max-width: 767px)
+{
+	.home h1 {
+		text-align: center;
+	}
+
+	.column-adjust-top-margin {
+		margin-top: 0;
+	}
+
+	.inbetween {
+		height: 80px;
+	}
+
+	.inbetween-sm {
+		height: 40px;
+	}
+}
+
+#header-logo{
+	width: 350px;
+}
+
+.dc{font-size:30px }
+.dc_name{font-weight:normal}
+
+.h1_head {margin-top:50px}
+
+#DCvideo{
+-webkit-box-shadow: 0px 22px 40px 0px rgba(89,87,89,1);
+-moz-box-shadow: 0px 22px 40px 0px rgba(89,87,89,1);
+box-shadow: 0px 22px 40px 0px rgba(89,87,89,1);
+}

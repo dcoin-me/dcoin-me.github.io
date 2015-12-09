@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Democratic coin</title>
+
+    <link href="http://dcoin.club/css/bootstrap.min.free.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="../css/new.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+.btn {
+	padding: 0;
+	font-weight: 300;
+}
+</style>
+
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+						
+</head>
+	
+<body>
+		<header>
+			<!-- Put the toast here -->
+			<a href="http://dcoin.club/">
+				<img id="header-logo" src="../logo3.png" />
+			</a>
+		</header>
+
+<div class="container text-center">
+
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+
+			<div id="unsubsribe_alert"></div>
+
+			<p>We won't bug you with emails about signups anymore :)</p>
+
+			<p>We'll send you just one more email once we're ready to give you wallet with coins.</p>
+
+
+		</div>
+	</div>
+
+</div>
+
+<div id="footer-wrapper">
+	<div id="footer">
+		<span class="lhs">
+			<a href="mailto:admin@dcoin.club">
+				Contact Us
+			</a>
+		</span>
+		<span class="rhs">
+		Released under the <a href="http://opensource.org/licenses/mit-license.php">MIT license</a>
+		</span>
+	</div>
+</div>
+      
+<script src="http://dcoin.club/js/jquery.min.js"></script>
+<script src="http://dcoin.club/js/bootstrap.min.js"></script>
+
+<script>
+
+$( document ).ready(function() {
+    
+    var urlVar = window.location.search;
+    var regex = /email\=(\w+)/;
+    var match = regex.exec(urlVar.substr(1));
+    
+    if (match !== undefined && match!=null) {  
+ 
+	var email = match[1];
+	$.get( 'http://107.181.161.141/dcoin/free/free_coins_unsubscribe.php', {
+		'email' : email
+		}, function (data) {
+		    if (data.success) {
+			$("#unsubsribe_alert").html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>You have been unsubscribed.</div>');
+		    }
+		    else {
+			$("#unsubsribe_alert").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+data.error+'</div>');
+		    }
+		}, 'JSON' )
+		 .fail(function(data, status, xhr){		  
+		      $("#unsubsribe_alert").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Server crashed. Please <a href="mailto:admin@dcoin.club">contact the administrator</a>.</div>');
+		  });
+
+    }
+    else {
+    
+	$("#unsubsribe_alert").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Empty email</div>');
+    }
+    
+});	 
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55689401-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>

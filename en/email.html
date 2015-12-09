@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Democratic coin</title>
+
+    <link href="http://dcoin.club/css/bootstrap.min.free.css" rel="stylesheet">
+    <link href="../css/new.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+    <link href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <link href="../video-js/video-js.css" rel="stylesheet">
+    <script src="../video-js/video.dev.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<style>
+h1, h5 {color:#fff; margin-left:5px; margin-right:5px}
+.btn{font-weight:bold}       
+#head1 {width: 1000px;}
+#logo{display: inline-block; padding:3px}
+#enter{float:right; padding:20px}
+a{ color:#fff}
+a:hover{ color:#fff;}
+.rhs{color:#fff}
+@media screen and (max-width: 1050px) {
+      #head1 {width: 800px;}
+}
+@media screen and (max-width: 850px) {
+      #head1 {width: 600px;}
+}
+@media screen and (max-width: 650px) {
+      #head1 {width: 400px;}
+      #logo{display: block; padding:3px; margin:auto; width:300px}
+      #enter{float:none; padding:20px; margin:auto; width:275px}
+}
+
+@media screen and (max-width: 450px) {
+      #head1 {width: 200px;}
+      #footer-wrapper{text-align:center; }
+      #footer .lhs {float: none;display: block; font-size:14px}
+      #footer .rhs {float: none;display: block; margin-top:10px; font-size:14px}
+}
+</style>
+</head>
+	
+<body>
+
+<div id="main" style="height: 100vh; width:100%; display:table;border-collapse: collapse;">
+		<header style="display: table-row; border-bottom:1px solid #ccc">
+		      <div id="head1" style="display: table;  margin:auto;">
+			  <div id="logo">
+			    <a href="http://dcoin.club/ru/">
+				    <img id="header-logo" src="../logo3.png" style="width: 300px;" />
+			    </a>
+			  </div>
+			  <div id="enter">
+			      <a type="button" class="btn btn-default" style="margin-right:5px; font-size:13px" href="http://pool.dcoin.club/">Sign in</a>  
+			      <a type="button" class="btn btn-primary" href="http://pool.dcoin.club/tools/available_keys.php?auto_login=1&lang=42" style="; font-size:13px">Sign up</a>
+			  </div>
+		      </div>
+		</header>
+
+
+		<div style="display: table-row;   background-size: cover; "> 
+		    <div style="text-align:center; padding-top:0px; height:100%; display: table-cell;vertical-align: middle;"> 
+			    
+			    
+			    <h2 style="letter-spacing: 0.02em; color:#555; margin: 20px auto; max-width:800px">Unfortunately, the space on the pools are over. You can specify your email address and we will inform you about the appearance of places.</h1>
+			      	<div style="margin-bottom:20px">	
+				    <div id="mess" style="margin-bottom:5px;max-width:300px; margin:auto"></div>
+				    <div style="" class="form-inline" >
+				    <input id="email" type="text" class="form-control input-lg" style="max-width:200px; margin:auto" placeholder="e-mail"> <button id="save_email" type="button" class="btn btn-primary btn-lg">OK</button>
+				</div>  
+		    </div>
+		</div>
+		
+		
+</div>
+
+
+<div id="footer-wrapper" style="margin-top:0px; background-color:#5D9CEC">
+	<div id="footer">
+		<span class="lhs">
+			<a href="mailto:hello@dcoin.club">
+				Contact
+			</a>
+		</span>
+		<span class="rhs">
+		Released under the <a href="http://opensource.org/licenses/mit-license.php">MIT license</a>
+		</span>
+	</div>
+</div>
+      
+<script src="http://dcoin.club/js/jquery.min.js"></script>
+<script src="http://dcoin.club/js/bootstrap.min.js"></script>
+
+<script>
+
+$('#save_email').bind('click', function () {
+    if ( $('#email').val().indexOf('@')==-1 ) {
+	  $('#mess').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Please enter your e-mail</a></div>');
+    } else {
+	$.get( 'http://107.181.161.141/pool_save_email.php', {
+			'email' : $("#email").val(),
+			}, function (data) {
+			  if (data.error)
+				$("#mess").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+data.error+'</a></div>');
+			  else
+				$("#mess").html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Thanks! We will contact you soon.</a></div>');
+			}, 'JSON' );
+    }
+    
+});
+
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter25696541 = new Ya.Metrika({id:25696541,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/25696541" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</body>
+
+</html>

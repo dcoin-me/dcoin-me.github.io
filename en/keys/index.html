@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate keys and signatures</title>
+  <!--[if IE]>
+  <script type='text/javascript'>
+    (function() {
+      var tag = document.getElementById('basetag');
+      tag.href = location.protocol + '//' + location.host + '/';
+    }());
+  </script>
+  <![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../js/jsencrypt.js"></script>
+  <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  
+  <script language="JavaScript" type="text/javascript" src="../../js/jsbn.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../../js/jsbn2.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../../js/rsa.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../../js/rsa2.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../../js/sha1.js"></script>	
+  <script language="JavaScript" type="text/javascript" src="../../js/base64.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../../js/rsapem-1.1.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../../js/rsasign-1.2.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../../js/asn1hex-1.1.min.js"></script>
+	
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li >
+          <a id="goto_key_gen">Key generation</a>
+        </li>
+        <li >
+          <a id="goto_sign_tx">Sign data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="key_gen" style="display:none">
+  <div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h1>Key generation</h1></div>
+    <div class="panel-body">
+      <div class="col-lg-2">
+        <div class="btn-group">
+          <div class="input-group">
+            <span class="input-group-addon">Key Size</span>
+            <button class="btn btn-default dropdown-toggle" id="key-size" type="button" data-value="1024"
+                    data-toggle="dropdown">1024 bit <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a class="change-key-size" data-value="1024" href="#">1024 bit</a></li>
+              <li><a class="change-key-size" data-value="2048" href="#">2048 bit</a></li>
+            </ul>
+          </div>
+        </div>
+        <br>&nbsp;<br>
+        <button id="generate" class="btn btn-primary">Generate</button>
+        <br>&nbsp;<br>
+        <span><i><p id="time-report" style="color:#ff0000; font-weight:bold"></p></i></span>
+        <br>&nbsp;<br>
+        Generation can last from a few seconds to a few minutes, wait for the keys.
+        <!--<label for="async-ck"><input id="async-ck" type="checkbox"> Async</label>-->
+      </div>
+      <div class="col-lg-10">
+      
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="privkey_1">The private key is 1 (you must save and print)</label><br/>
+            <small>
+              <textarea id="privkey_1" rows="15" style="width:100%"></textarea>
+            </small>
+          </div>
+          <div class="col-lg-6">
+            <label for="pubkey_1">2 public key (you need to enter in the office Dcoin)</label><br/>
+            <small><textarea id="pubkey_1" rows="15" style="width:100%" readonly="readonly"></textarea></small>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="privkey_2">2 private key (you need to save and print)</label><br/>
+            <small>
+              <textarea id="privkey_2" rows="15" style="width:100%"></textarea>
+            </small>
+          </div>
+          <div class="col-lg-6">
+            <label for="pubkey_2">2 public key (you need to enter in the office Dcoin)</label><br/>
+            <small><textarea id="pubkey_2" rows="15" style="width:100%" readonly="readonly"></textarea></small>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<div class="container" id="sign_tx">
+  <div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h1>Sign data</h1></div>
+    <div class="panel-body">
+      <div class="col-lg-10">
+        <div class="row">
+          <div class="col-lg-12">
+            <label for="privkey">Enter the data for signature</label><br/>
+            <small>
+              <textarea id="forsignature" rows="15" style="width:100%"></textarea>
+            </small>
+          </div>
+          <div class="col-lg-6">
+            <label for="privkey">Enter the private key 1</label><br/>
+            <small>
+              <textarea id="privkey1" rows="15" style="width:100%"></textarea>
+            </small>
+          </div>
+          <div class="col-lg-6">
+            <label for="privkey">Enter the private key 2</label><br/>
+            <small>
+              <textarea id="privkey2" rows="15" style="width:100%"></textarea>
+            </small>
+          </div>
+          
+          <div class="col-lg-12" style="margin: 10px 10px; text-align:center">
+	  <button class="btn" id="save">Sign</button>
+	  </div>
+		
+          <div class="col-lg-6">
+            <label for="privkey">Signature  1</label><br/>
+            <small>
+              <textarea id="sign1" rows="15" style="width:100%"></textarea>
+            </small>
+          </div>
+          <div class="col-lg-6">
+            <label for="privkey">Signature 2 </label><br/>
+            <small>
+              <textarea id="sign2" rows="15" style="width:100%"></textarea>
+            </small>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+
+function sign_data(decrypt_PEM, pass, sign) {
+
+  var forsignature = $("#forsignature").val();
+  var rsa = new RSAKey();
+  rsa.readPrivateKeyFromPEMString(decrypt_PEM);
+  var a = rsa.readPrivateKeyFromPEMString(decrypt_PEM);
+  var modulus = a[1];
+  var exp = a[2];
+
+  console.log('decrypt_PEM='+decrypt_PEM);
+  console.log('forsignature='+forsignature);
+
+  var hSig = rsa.signString(forsignature, 'sha1');
+
+  console.log('hSig='+hSig);
+
+  $("#"+sign).val(hSig);
+  
+  delete rsa;
+}
+			
+
+
+$('#save').bind('click', function () {
+  
+  var decrypt_PEM = $("#privkey1").val();
+  sign_data(decrypt_PEM, '', 'sign1');
+  
+  var decrypt_PEM = $("#privkey2").val();
+  sign_data(decrypt_PEM, '', 'sign2');
+  
+} );
+
+$('#goto_key_gen').bind('click', function () {
+    $("#sign_tx").css("display", "none");
+    $("#key_gen").css("display", "block");
+} );
+
+$('#goto_sign_tx').bind('click', function () {
+    $("#key_gen").css("display", "none");
+    $("#sign_tx").css("display", "block");
+} );
+
+
+  $(function () {
+
+    //Change the key size value for new keys
+    $(".change-key-size").each(function (index, value) {
+      var el = $(value);
+      var keySize = el.attr('data-value');
+      el.click(function (e) {
+        var button = $('#key-size');
+        button.attr('data-value', keySize);
+        button.html(keySize + ' bit <span class="caret"></span>');
+        e.preventDefault();
+      });
+    });
+
+    var generateKeys = function () {
+      var sKeySize = $('#key-size').attr('data-value');
+      var keySize = parseInt(sKeySize);
+      var crypt1 = new JSEncrypt({default_key_size: keySize});
+      var crypt2 = new JSEncrypt({default_key_size: keySize});
+      //var async = $('#async-ck').is(':checked');
+      var dt = new Date();
+      var time = -(dt.getTime());
+      //if (async) {
+        $('#time-report').text('.');
+        var load = setInterval(function () {
+          var text = $('#time-report').text();
+          $('#time-report').text(text + '.');
+        }, 500);
+        
+        crypt1.getKey(function () {
+          
+          var pkey1 = crypt1.getPublicKey();
+          $('#privkey_1').val(crypt1.getPrivateKey());
+          $('#pubkey_1').val(pkey1);
+          
+        });
+        
+        crypt2.getKey(function () {
+          clearInterval(load);
+          dt = new Date();
+          time += (dt.getTime());
+          $('#time-report').text('Ready');
+                    
+          var pkey2 = crypt2.getPublicKey();
+          $('#privkey_2').val(crypt2.getPrivateKey());
+          $('#pubkey_2').val(pkey2);
+          
+        });
+        
+        return;
+      //}
+    };
+
+    // If they wish to generate new keys.
+    $('#generate').click(generateKeys);
+
+    var urlVar = window.location.search;
+    var page = urlVar.substr(1);
+    if (page=='keys') {
+       $("#key_gen").css("display", "block");
+       $("#sign_tx").css("display", "none");
+    }
+    else {    
+       $("#sign_tx").css("display", "block");
+       $("#key_gen").css("display", "none");
+    }
+  });
+</script>
+
+</div>
+
+</body>
+</html>

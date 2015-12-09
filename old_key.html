@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1/build/rollups/aes.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://pool.dcoin.club/static/js/md5.js"></script>
+	<script src="http://pool.dcoin.club/static/js/rijndael.js"></script>
+	<script src="http://pool.dcoin.club/static/js/mcrypt.js"></script>
+	
+  </head>
+  <body>
+       <script>
+       	function Generate_key() {
+		var key = "";
+		var hex = "0123456789abcdef";
+
+		for (i = 0; i < 64; i++) {
+			key += hex.charAt(Math.floor(Math.random() * 16));
+		}
+		return key;
+	}
+	
+       	      function decryptOldKey() {
+			key =  $('#key').val()
+			pass =  $('#pass').val()
+			
+			mcrypt_iv=CryptoJS.enc.Hex.parse(Generate_key());
+			var decrypt_PEM = mcrypt.Decrypt(atob(key.replace(/\n|\r/g, "")), mcrypt_iv, hex_md5(pass), 'rijndael-128', 'ecb');    
+			$('#decrypted').text(decrypt_PEM)	    
+
+    
+	      }
+      </script>
+      Encypted key: <br><textarea id="key" style="width:600px; height:200px"></textarea><br>
+      Password: <br><input type="password" id="pass">
+      <input type="button" id="next" value="next" onclick="decryptOldKey()"><br>
+      Decypted key: <br><textarea id="decrypted" style="width:600px; height:200px"></textarea><br>
+  </body>
+</html>

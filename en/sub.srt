@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.000 --> 00:08.300
+
+
+00:08.300 --> 00:14.300
+If you have installed Dcoin to your computer, you should wait for the blockchain update.
+
+00:14.300 --> 00:17.300
+Transfer of coins from one Dcoin user to another is available in the anonymous mode.
+
+00:17.300 --> 00:19.800
+Ability to finance crowdfunding projects.
+
+00:19.800 --> 00:22.800
+Currency exchange on a decentralized exchange.
+
+00:22.800 --> 00:25.800
+Ability to become a creditor.
+
+00:25.800 --> 00:29.800
+You can also run your own crowdfunding projects.
+
+00:29.800 --> 00:38.800
+Let's send coins.
+
+00:38.800 --> 00:41.800
+Now our transaction went to the network.
+
+00:41.800 --> 00:51.800
+All transactions are encrypted using AES 256-bit key, and the session key is encrypted with 2048-bit public RSA-key of the node.
+
+00:51.800 --> 00:59.300
+Here the block came from the network, which sealed our transaction.
+
+00:59.300 --> 01:08.300
+Let's take a look at the block and the transaction unassembled.
+
+01:08.300 --> 01:12.300
+This is our transaction.
+
+01:12.300 --> 01:17.300
+This is our signature made with the private 2,048-bit RSA key.
+
+01:17.300 --> 01:22.300
+This is the block's signature made with the private 1024-bit RSA key of the node that generated the block.
+
+01:22.300 --> 01:30.300
+You can download the block and disassemble it in any hex-editor.
+
+01:30.300 --> 01:35.300
+
+
+01:35.300 --> 01:40.300
+You need to upgrade your account for mining.
+
+01:40.300 --> 01:45.300
+1 miner = 1 person.
+
+01:45.300 --> 02:02.300
+Upload photos.
+
+02:02.300 --> 02:08.300
+And the video, because video (unlike photo) is impossible to forge.
+
+02:08.300 --> 02:43.300
+You will learn later why you need to make these marks.
+
+02:43.300 --> 02:46.300
+Url of your node.
+
+02:46.300 --> 02:54.300
+You will learn later why you need to specify your location.
+
+02:54.300 --> 02:59.300
+The transaction is sent.
+
+02:59.300 --> 03:04.300
+
+
+03:04.300 --> 03:14.300
+Other miners checked our video and photo, the number of positive votes outweighed the negative, and we now have the status of miner.
+
+03:14.300 --> 03:20.300
+We can generate and sign blocks.
+
+03:20.300 --> 03:25.300
+And we can also verify applicants to miners.
+
+03:25.300 --> 03:39.300
+We need to check whether the marks are made correctly. We look where the digit on the left picture is located and check where the picture on the right picture is. The search for clones in a database in run by the marks.
+
+03:39.300 --> 03:46.300
+Let's look if there are any clones.
+
+03:46.300 --> 03:54.300
+Since the photos can be faked, but video can't be, we need to check if there is the same person in the video and photo.
+
+03:54.300 --> 04:02.300
+The transaction went to the network.
+
+04:02.300 --> 04:08.300
+
+
+04:08.300 --> 04:28.300
+I'm ready to buy DUSD 1,000 for $1,000. I need to add the promised amount. I will get a miner's salary in DUSD for being a kind of ATM, which is ready to give $1,000 for DUSD 1,000. 
+
+04:28.300 --> 04:32.300
+The transaction went to the network.
+
+04:32.300 --> 04:37.600
+
+
+04:37.600 --> 04:46.600
+I have been waiting for a whole month for someone to decide and sell me DUSD, but nobody did.
+
+04:46.600 --> 04:56.100
+I received coins for working as an ATM for a month (it does not matter that no one took advantage of me).
+
+04:56.100 --> 05:00.100
+Send the coins to the wallet.
+
+05:00.100 --> 05:11.600
+The transaction is sent to the network, you need to wait for the block to come - after this, the coins will appear in the wallet.
+
+05:11.600 --> 05:15.600
+Here the block came from the network.
+
+05:15.600 --> 05:20.100
+There is DUSD +220 in the wallet now.
+
+05:20.100 --> 05:25.100
+
+
+05:25.100 --> 05:41.100
+If I need cash, I can exchange DUSD for USD with any miner who works as the ATM like I do.
+
+05:41.100 --> 05:51.100
+When we upgraded our account, we marked our location. It is needed for miners to find those who are located nearby them.
+
+05:51.100 --> 05:55.100
+I choose a miner who is not far from me.
+
+05:55.100 --> 06:04.100
+We specify out contact information - it will be encrypted with 2048-bit RSA key of the recipient.
+
+06:04.100 --> 06:12.100
+Here's the code I have to give him in exchange for $200.
+
+06:12.100 --> 06:15.100
+The transaction went to the network.
+
+06:15.100 --> 06:29.100
+
+
+06:29.100 --> 06:44.600
+If the total number of coins of some currency is greater than the amount of the promised amounts, the "reduction" transaction is automatically generated, which reduces the entire volume of the coins of the distressed currency by 10%.
+
+06:44.600 --> 06:52.600
+
+
+06:52.600 --> 07:01.600
+After one month as I become a miner I got an ability to vote.
+
+07:01.600 --> 07:11.600
+Miners can choose the administrator. Anybody can be the administrator if he's got 50% of miners' votes. The administrator may be rechosen fortnightly.
+
+07:11.600 --> 07:16.600
+Every miner can be demoted to user by an admin.
+
+07:16.600 --> 07:31.600
+If a bot or a someone's clone has become a miner, admin has to demote him to user. Consequently, admin must fix all the mistakes, which can be made by those miners, who are checking the candidates for becoming a miner.
+
+07:31.600 --> 07:36.600
+Also it's necessary to assign the number of referral bonuses.
+
+07:36.600 --> 07:46.600
+To sign up in Dcoin you need RSA-key, which was signed up by some miner. Miner can make not more than 10 keys per month.
+
+07:46.600 --> 08:01.600
+The key user becomes referral of those miner, who signed this key up. When referral sends coins from the promised amount to the wallet, referrer will have a percentage from this amount.
+
+08:01.600 --> 08:16.600
+If you don't want to have a referral bonuses in the crypto currency you can put 0 value in every line. Every 2 weeks the votes get converted and the values get reselected.
+
+08:16.600 --> 08:22.600
+You can vote for every currency we have in the promised amounts.
+
+08:22.600 --> 08:30.600
+An annual percentage determines the speed of new coins' emission.
+
+08:30.600 --> 08:34.600
+Maximal promised amount may also be changed by voting.
+
+08:34.600 --> 08:44.600
+How many currencies may be mined at the same time.
+
+08:44.600 --> 08:54.600
+Also miners can vote for a contraction of the volume of coins of any currency. The contraction happens only if there are more than 50% for such a decision.
+
+08:54.600 --> 09:02.600
+It's important not to mix up the contraction of the volume(which happens only by voting) and self-acting 10%-contraction.
+
+09:02.600 --> 09:15.600
+Every 2 weeks the votes get converted and the values get reselected.
+
+09:15.600 --> 09:19.600
+Transaction went to the DC-network.
+
+09:19.600 --> 09:24.600
+
+
+09:24.600 --> 09:34.600
+For miners' motivation in checking the other miners and voting there are points.
+
+09:34.600 --> 09:47.600
+If there are not enough points the coins from the promised amounts will increase with user's percentage. During the first month everybody has the user's percentage, because points calculate monthly.
