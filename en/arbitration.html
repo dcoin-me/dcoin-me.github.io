@@ -106,10 +106,10 @@ h1{
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="max-width:980px; margin:auto">
       <ul class="nav navbar-nav">
 		<li><a href="/en/">Home</a></li>
-		<li><a href="http://en.wiki.dcoin.club:8080" target="_blank">Wiki</a></li>
+		<li><a href="https://github.com/c-darwin/dcoin-go/wiki" target="_blank">Wiki</a></li>
 		<li><a href="http://dcoinforum.org/" target="_blank">Forum</a></li>
-		<li><a href="http://en.wiki.dcoin.club:8080/API_Integration" target="_blank">To the online stores</a></li>
-		<li><a href="http://en.wiki.dcoin.club:8080/Exchange" target="_blank">Exchanges</a></li>
+		<li><a href="https://github.com/c-darwin/dcoin-go/wiki/API_Integration" target="_blank">To the online stores</a></li>
+		<li><a href="https://github.com/c-darwin/dcoin-go/wiki/Exchange" target="_blank">Exchanges</a></li>
       </ul>
       <div id="subscribe" style="float:right">
       <div class="navbar-form navbar-left" role="search">
@@ -169,11 +169,11 @@ Online arbitration or how to clear all doubts regarding your credibility. When s
 
 <strong>Foreword about DCoin </strong>
 <p>
-Dcoin has no central servers. As in BitCoin, every node has a full <a href="http://en.wiki.dcoin.club:8080/Description_for_tables">data base copy</a>. New data exchange between nodes takes place via  <a href="http://en.wiki.dcoin.club:8080/Block">blocks</a>. Every block has a hash of the previous hash. All transactions from one user have unique signature, which proves that such transaction was made by a particular user.<br>
+Dcoin has no central servers. As in BitCoin, every node has a full <a href="https://github.com/c-darwin/dcoin-go/wiki/Description_for_tables">data base copy</a>. New data exchange between nodes takes place via  <a href="https://github.com/c-darwin/dcoin-go/wiki/Block">blocks</a>. Every block has a hash of the previous hash. All transactions from one user have unique signature, which proves that such transaction was made by a particular user.<br>
 <img src="arbitration/fdf7240cbc728906f061f5b48290a259.png" width="700"><br>
 
 <br>
-In contrast to BitCoin (where there is only one type of transaction), Dcoin has <a href="http://en.wiki.dcoin.club:8080/Transactions">66 transactions types</a>.
+In contrast to BitCoin (where there is only one type of transaction), Dcoin has <a href="https://github.com/c-darwin/dcoin-go/wiki/Transactions">66 transactions types</a>.
 
 <br>Example of the transaction structure:<br>
 <table>
@@ -182,7 +182,7 @@ In contrast to BitCoin (where there is only one type of transaction), Dcoin has 
 <tr><td>TIME</td><td>Time of transaction</td><td><nobr>4 bytes</nobr></td></tr> 
 <tr><td>USER_ID</td><td>ID of the user who created transaction</td><td><nobr>5 bytes</nobr></td></tr> 
 <tr><td>CURRENCY_ID</td><td>ID of currency</td><td><nobr>1-3 bytes</nobr></td></tr> 
-<tr><td>AMOUNT</td><td>Quantity of <a href="http://en.wiki.dcoin.club:8080/Promised_amount">promised amount</a></td><td><nobr>1-12 bytes</nobr></td></tr> 
+<tr><td>AMOUNT</td><td>Quantity of <a href="https://github.com/c-darwin/dcoin-go/wiki/Promised_amount">promised amount</a></td><td><nobr>1-12 bytes</nobr></td></tr> 
 <tr><td>VIDEO_TYPE</td><td>youtube,vimeo,youku,null</td><td><nobr>4-7 bytes</nobr></td></tr> 
 <tr><td>VIDEO_URL_ID</td><td>ID from video host</td><td><nobr>5-32 bytes</nobr></td></tr> 
 <tr><td>PAYMENT_SYSTEMS_IDS</td><td>ID of payment system</td><td>1-24 bytes</td></tr> 
@@ -201,21 +201,21 @@ Block structure:<br>
 
 <tr><td>USER_ID</td><td>User ID that created the block</td><td>5 bytes</td></tr>
 
-<tr><td>LEVEL</td><td>Miner’s <a href="http://en.wiki.dcoin.club:8080/Block_Generating_Miner">level</a> at the time of block creation</td><td>2 bytes</td></tr>
+<tr><td>LEVEL</td><td>Miner’s <a href="https://github.com/c-darwin/dcoin-go/wiki/Block_Generating_Miner">level</a> at the time of block creation</td><td>2 bytes</td></tr>
 
-<tr><td>SIGN</td><td>Signature from (TYPE, BLOCK_ID, PREV_BLOCK_HASH, TIME, USER_ID, LEVEL, MRKL_ROOT), made using the <a href="http://en.wiki.dcoin.club:8080/node-key">node key</a></td><td> from 128 to 512 bytes</td></tr>
+<tr><td>SIGN</td><td>Signature from (TYPE, BLOCK_ID, PREV_BLOCK_HASH, TIME, USER_ID, LEVEL, MRKL_ROOT), made using the <a href="https://github.com/c-darwin/dcoin-go/wiki/node-key">node key</a></td><td> from 128 to 512 bytes</td></tr>
 
 <tr><td>TRANSACTIONS</td><td>List of transactions</td><td> Up to 3Mb </td></tr>
 </table>
 
 
-<p>For more details about DCoin go to <a href="http://en.wiki.dcoin.club:8080/">wiki</a>.</p>
+<p>For more details about DCoin go to <a href="https://github.com/c-darwin/dcoin-go/wiki/">wiki</a>.</p>
 
 <strong>Mining in Dcoin</strong>
 <p>
 Mining with Dcoin is not the mining everyone is used to dealing with in context of other cryptocurrencies. It is effortless. Dcoins are created with every new block and shared among all participants. For anonymous users, coin volume growth is approx. 0.0004% per block. % value is determined by voting of identified users.</p>
 <p>One identified user can create a limited number of coins from nothing. In other words, users, who proved their authenticity, are responsible for creating primary amount of coins. Every such user is also an offline exchange “point” to change cash for coins. Identified users are called MINERS</p>
-<p>If the amount of coins becomes too high for market demands,  <a href="http://en.wiki.dcoin.club:8080/Reduction_of_coins">coins reduction</a> happens. Reduction is based on the data from the blockchain, and so it can be forecasted, relying upon the number of miners, coins and promised amounts. As the number of miners increases, reduction becomes unfeasible.</p>
+<p>If the amount of coins becomes too high for market demands,  <a href="https://github.com/c-darwin/dcoin-go/wiki/Reduction_of_coins">coins reduction</a> happens. Reduction is based on the data from the blockchain, and so it can be forecasted, relying upon the number of miners, coins and promised amounts. As the number of miners increases, reduction becomes unfeasible.</p>
 
 <h3>Details on Arbitration</h3>
 <h4 class='h4-habr'>Multy-arbitration</h4>
@@ -539,8 +539,8 @@ Tansaction example
                         <div class="col-sm-4">
                         <ul>
 			  <li><a href="https://github.com/c-darwin/dcoin-go">Source Code</a></li>
-			  <li><a href="http://en.wiki.dcoin.club:8080/Dcoin_FAQ">FAQ</a></li>
-			  <li><a href="http://en.wiki.dcoin.club:8080/">Wiki</a></li>
+			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/Dcoin_FAQ">FAQ</a></li>
+			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/">Wiki</a></li>
 			  <li><a href="http://pool.dcoin.club/#blockExplorer">Block explorer</a></li>
 			  <li><a href="nodes.html">DC-network status</a></li>
                         </ul>
@@ -549,8 +549,8 @@ Tansaction example
                         <div class="col-sm-4">
                         <ul>
 			  <li><a href="investor.html">To the investors</a></li>
-			  <li><a href="http://en.wiki.dcoin.club:8080/API_Integration">To the online stores</a></li>
-			  <li><a href="http://en.wiki.dcoin.club:8080/Exchange">Exchanges</a></li>
+			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/API_Integration">To the online stores</a></li>
+			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/Exchange">Exchanges</a></li>
 			  <li><a href="http://dcrowd.org">Crowdfunding</a></li>
 			  </ul>
                         </div>
