@@ -851,7 +851,7 @@ $('#save_email').bind('click', function () {
   <script type="application/javascript">
     
         $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
-	  if (in_array(data.countryCode, ['RU', 'UA', 'KZ'])) {
+	  if (in_array(data.countryCode, ['RU', 'UA', 'KZ', 'KG', 'BY', 'AZ', 'AM', 'TJ', 'TM', 'UZ'])) {
 	    console.log(data.countryCode);
 	    window.location = 'http://dcoin.club/ru';
 	  }
