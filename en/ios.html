@@ -11,8 +11,10 @@
 
     <title>Democratic coin</title>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
     <link href="../css/bootstrap.min.free.css" rel="stylesheet">
     <link href="../css/2.0.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
@@ -32,9 +34,37 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
+<style>
+  .nodes td{text-align:left}
+</style>
 </head>
 <body>
 <script src="../js/nav.js"></script>
+<script>
+var nodes_data = {};
+var authHeader = '111111111';
+$.get( 'http://pool.democratic-coin.com/tools/check_node.php?nodes=1', {}, function (data) {
+
+	for (var i=0; i<data.length; i++) {
+	
+	    nodes_data[data[i].host] = data[i].count;
+	    
+	     var geturl;
+	     
+	     $.ajax({
+		type: "GET",    
+		dataType: 'html',
+		url: data[i].host+'tools/check_node.php?table=info_block&col=2&row=0',    
+		headers:{'host_': data[i].host},
+		complete: function(data) {
+			$('.nodes > tbody:last').append('<tr><td>'+this.headers.host_+'</td><td>'+nodes_data[this.headers.host_]+'</td><td>'+data.responseText+'</td></tr>');
+			}
+		});
+	    
+	}
+},'JSON');
+
+</script>
 <div id="demo_top_wrapper">
 	<div id="demo_top">
 	</div>
@@ -54,19 +84,14 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="max-width:980px; margin:auto">
       <ul class="nav navbar-nav">
-		<li><a href="/ru/" class="selected">Главная</a></li>
-		<li><a href="/ru/#start">Начать</a></li>
+		<li><a href="/en/" class="selected">Home</a></li>
 		<li><a href="https://github.com/c-darwin/dcoin-go/wiki" target="_blank">wiki</a></li>
-		<li><a href="http://dcoinforum.org/" target="_blank">Форум</a></li>
-		<li><a href="https://github.com/c-darwin/dcoin-go/wiki/Прием-Dcoin-на-сайте" target="_blank">Магазинам</a></li>
-		<li><a href="https://github.com/c-darwin/dcoin-go/wiki/Биржи" target="_blank">Биржи</a></li>
+		<li><a href="http://dcoinforum.org/" target="_blank">Forum</a></li>
+		<li><a href="https://github.com/c-darwin/dcoin-go/wiki/API_Integration" target="_blank">To the online stores</a></li>
+		<li><a href="https://github.com/c-darwin/dcoin-go/wiki/Exchange" target="_blank">Exchanges</a></li>
       </ul>
       <div id="subscribe">
       <div class="navbar-form navbar-left" role="search">
-	  <div class="form-group">
-	    <input id="email" type="text" class="form-control" placeholder="E-mail">
-	  </div>
-	  <button class="btn btn-default" id="save_email">Подписаться</button>
 	</div>
       </div>
     </div>    
@@ -79,27 +104,34 @@
 	
 </div>
 
-        <section id="s2"><a name="s2"></a>
+
+ <section id="s2"><a name="s2"></a>
             <div style="min-height: 465px;" class="s2">                
                 <div class="container">
-                    <h1>Инвесторам</h1>
+                    <h1>Installation on IOS</h1>
                     <div class="row">
                     
-                        <div class="col-sm-6">
-			    <p style="font-size:25px">Вы, как и Мы, уверены, что Dcoin взлетит до небес, нужно лишь его немного подтолкнуть?
-Пишите на investors@dcoin.club, для Вас есть очень выгодное предложение.</p>
-                        </div>   
-                        <div class="col-sm-6">
-			    <i class="fa fa-line-chart"></i>
-                        </div>                                                
-
-  
+                        <div>
+			    <p>Dcoin not yet had time to get in the App Store</p>
+			    <p>Therefore, to run Dcoin on devices with IOS, perform the following steps:</p>
+			    <ol>
+			    <li>Install <a href="https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12">Xcode 7.x</a></li>
+			    <li>Install <a href="https://git-scm.com/download/mac">git</a></li>
+			    <li>Install <a href="https://storage.googleapis.com/golang/go1.5.1.darwin-amd64.pkg">golang 1.5.1</a></li>		
+			    <li>Connect your iPhone or iPad to your computer</li>
+			    <li>Run Xcode</li>
+			    <li>Top on the menu go to <b>Xcode</b>-><b>Preferences</b>-><b>Accounts</b>. Bottom left click <b>+</b>, then click <b>Add Apple ID</b> and enter your data. Right click <b>View details</b> and then - <b>create</b> near <b>IOS Development</b></li>	    
+			    <li>Create a new empty project. Tab <b>General</b> in <b>Deployment Info</b> select <b>Deployment Target</b> corresponding to your version of IOS, further specify the unique <b>Bundle Identifier</b>, for example, <b style="color:#ff0000">dcoin973459</b> (below will need to use it), in <b>Team</b> select your account and click <b>Fix issue</b></li>
+			    
+			    <li>Perform console #<b>mkdir ~/go-projects; cd ~/go-projects && export GOPATH=~/go-projects && go get -u github.com/c-darwin/mobile/cmd/gomobile && cd $GOPATH/src/github.com/c-darwin/mobile/cmd/gomobile && go build -o ~/go-projects/bin/gomobile && $GOPATH/bin/gomobile init && go get -u github.com/jteeuwen/go-bindata/... && cd $GOPATH/src/github.com/c-darwin/dcoin-go && git stash && go get -u github.com/c-darwin/dcoin-go && $GOPATH/bin/go-bindata -o="packages/static/static.go" -pkg="static" static/... && go get -u github.com/c-darwin/dcoin-go && cd ~ && $GOPATH/bin/gomobile  build -target=ios -x -v -name=<span  style="color:#ff0000">dcoin973459</span> github.com/c-darwin/dcoin-go</b></li>
+			    <li>In your home directory will file Dcoin.app. In xcode go to the menu <b>Windows</b> -> <b>Devices</b>, select your device on the left and on the right click <b>+</b> and select the file Dcoin.app</li>
+			    <li>On your device will Dcoin</li>
+			    </ol>
                         </div>
                     </div>
                 </div>                
             </div>
         </section>
-        
         
         <section id="footer">
             <div class="footer">                
@@ -109,19 +141,19 @@
                         <div class="col-sm-4">
                         <ul>
 			  <li><a href="https://github.com/c-darwin/dcoin-go">Source Code</a></li>
-			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/Ответы-на-частые-вопросы">FAQ</a></li>
+			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/Dcoin-FAQ">FAQ</a></li>
 			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/">Wiki</a></li>
 			  <li><a href="http://pool.dcoin.club/#blockExplorer">Block explorer</a></li>
-			  
+			  <li><a href="nodes.html">DC-network status</a></li>
                         </ul>
                         </div>
                         
                         <div class="col-sm-4">
                         <ul>
-			  <li><a href="investor.html">Инвесторам</a></li>
-			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/Прием-Dcoin-на-сайте">Магазинам</a></li>
-			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/Биржи">Биржи</a></li>
-			  
+			  <li><a href="investor.html">To the investors</a></li>
+			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/API_Integration">To the online stores</a></li>
+			  <li><a href="https://github.com/c-darwin/dcoin-go/wiki/Exchange">Exchanges</a></li>
+			  <li><a href="http://dcrowd.org">Crowdfunding</a></li>
 			  </ul>
                         </div>
                         <div class="col-sm-4">
@@ -157,7 +189,7 @@
             
 	<div class="footer-bottom">
 	  <div class="section-boxed">
-	    <span class="copyrights">© Dcoin Project 2014-2015. ПО распространяется под лицензией <a href="http://opensource.org/licenses/mit-license.php">MIT</a></span>
+	    <span class="copyrights">© Dcoin Project 2014-2015 Released under the <a href="http://opensource.org/licenses/mit-license.php">MIT license</a></span>
 	</div>
 	</div>
 	
@@ -178,7 +210,7 @@ $('#save_email').bind('click', function () {
 				  //$("#mess").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+data.error+'</a></div>');
 			    }
 			    else {
-				  $("#subscribe").html('<div style="color:#fff; margin-top: 15px; padding-left: 20px; overflow:auto">Вы подписаны, спасибо!</div>');
+				  $("#subscribe").html('<div style="color:#fff; margin-top: 15px; padding-left: 20px; overflow:auto">You are subscribed, thank you!</div>');
 			    }
 			}, 'JSON' );
     }
