@@ -87,24 +87,10 @@
                 <div class="container">
                     <h1>Установка на IOS</h1>
                     <div class="row">
-                    
-                        <div>
-			    <p>Dcoin еще не успел попасть в App Store</p>
-			    <p>Поэтому, чтобы запустить Dcoin на устройствах с IOS нужно выполнить следующие шаги:</p>
-			    <ol>
-			    <li>Установите <a href="https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12">Xcode 7.x</a></li>
-			    <li>Установите <a href="https://git-scm.com/download/mac">git</a></li>
-			    <li>Установите <a href="https://storage.googleapis.com/golang/go1.5.1.darwin-amd64.pkg">golang 1.5.1</a></li>		
-			    <li>Подключите iPhone или iPad к компьютеру</li>
-			    <li>Запустите Xcode</li>
-			    <li>Вверху в меню зайдите в <b>Xcode</b>-><b>Preferences</b>-><b>Accounts</b>. Слева внизу нажмите <b>+</b>, затем нажмите <b>Add Apple ID</b> и укажите свои данные. Справа нажмите <b>View details</b> и затем - <b>create</b> возле <b>IOS Development</b></li>	    
-			    <li>Создайте новый пустой проект. Во вкладке <b>General</b> в <b>Deployment Info</b> укажите <b>Deployment Target</b> соответствующий версии Вашей IOS, далее укажите уникальный <b>Bundle Identifier</b>, например, <b style="color:#ff0000">dcoin973459</b> (ниже нужно будет его использовать), в <b>Team</b> выберите Ваш аккаунт и жмите <b>Fix issue</b></li>
-			    
-			    <li>Выполните в консоле #<b>mkdir ~/go-projects; cd ~/go-projects && export GOPATH=~/go-projects && go get -u github.com/c-darwin/mobile/cmd/gomobile && cd $GOPATH/src/github.com/c-darwin/mobile/cmd/gomobile && go build -o $GOPATH/bin/gomobile && $GOPATH/bin/gomobile init && go get -u github.com/jteeuwen/go-bindata/... && go get -u github.com/c-darwin/stoppableListener && go get -u github.com/c-darwin/dcoin-go && cd $GOPATH/src/github.com/c-darwin/dcoin-go/ && $GOPATH/bin/go-bindata -o="packages/static/static.go" -pkg="static" static/... && cd ~ && $GOPATH/bin/gomobile build -target=ios -x -v -name=<span  style="color:#ff0000">dcoin973459</span> github.com/c-darwin/dcoin-go</b></li>
-			    <li>В Вашей домашней директории появится файл Dcoin.app. В xcode зайдите в меню <b>Windows</b> -> <b>Devices</b>, выберите свой девайс слева, а справа нажмите <b>+</b> и выберите файл Dcoin.app</li>
-			    <li>На Вашем девайсе появится Dcoin</li>
-			    </ol>
-                        </div>
+						<form style="width:300px; margin:0px auto; font-size:0px;">
+							<input id="mail" type="text" class="form-control input-lg" style="max-width:200px; margin:auto; display:inline-block; margin-right:10px;" placeholder="e-mail">
+							<button id="send_email" type="button" class="btn btn-primary btn-lg" style="display:inline-block;">OK</button>
+						</form>
                     </div>
                 </div>                
             </div>
@@ -189,6 +175,23 @@ $('#save_email').bind('click', function () {
 			    }
 			    else {
 				  $("#subscribe").html('<div style="color:#fff; margin-top: 15px; padding-left: 20px; overflow:auto">Вы подписаны, спасибо!</div>');
+			    }
+			}, 'JSON' );
+    }
+    
+});
+$('#send_email').bind('click', function () {
+    if ( $('#mail').val().indexOf('@')==-1 ) {
+	 // $('#mess').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Пожалуйста, укажите свой e-mail</a></div>');
+    } else {
+	$.get( 'http://ios.dcoin.club/save_email.php', {
+			'email' : $("email").val(),
+			}, function (data) {
+			    if (data.error) {
+				  //$("#mess").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+data.error+'</a></div>');
+			    }
+			    else {
+				  //$("#subscribe").html('<div style="color:#fff; margin-top: 15px; padding-left: 20px; overflow:auto">Вы подписаны, спасибо!</div>');
 			    }
 			}, 'JSON' );
     }
