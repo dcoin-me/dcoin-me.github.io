@@ -169,14 +169,13 @@ $('#save_email').bind('click', function () {
 	$.post( 'http://ios.dcoin.club:8001', {
 			'email' : $("#email_ios").val(),
 			}, function (data) {
-			alert(111)
 			   // if (data.error) {
 			//	  $("#mess").html('<div class="alert alert-danger alert-dismissable"><button type="button" //class="close" data-dismiss="alert" aria-hidden="true">×</button>'+data.error+'</a></div>');
 			  //  }
 			   // else {
 				  $("#mess").html('<div style="color:#fff; margin-top: 15px; padding-left: 20px; overflow:auto">Принято, спасибо!</div>');
 			   // }
-			});
+			}, 'JSON');
     }
     
 });
