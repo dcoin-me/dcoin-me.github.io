@@ -89,6 +89,8 @@
             <div style="min-height: 465px;" class="s2">                
                 <div class="container">
                     <h1>Installation on IOS</h1>
+                    <p>We have a beta version of our awesome DCoin app</p>
+                    <p>Join our beta test right now</p>
                     <div class="row">
                     <div id="mess"></div>
 			<input type="text" class="form-control input-lg" style="max-width:200px; margin:auto; display:inline-block; margin-right:10px;" placeholder="e-mail" id="email_ios">
@@ -163,7 +165,7 @@
 
 $('#save_email').bind('click', function () {
     if ( $('#email_ios').val().indexOf('@')==-1 ) {
-	 $('#mess').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Пожалуйста, укажите свой e-mail</a></div>');
+	 $('#mess').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Please, write your email</a></div>');
     } else {
 	$.post( 'http://ios.dcoin.club:8001', {
 			'email' : $("#email_ios").val(),
@@ -172,7 +174,7 @@ $('#save_email').bind('click', function () {
 				  $("#mess").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+data.error+'</a></div>');
 			    }
 			    else {
-				  $("#mess").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Принято, спасибо!</a></div>');
+				  $("#mess").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Saved! You'll get an email with further instructions soon</a></div>');
 			    }
 			}, 'JSON');
     }
