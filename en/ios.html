@@ -114,10 +114,9 @@ $.get( 'http://pool.democratic-coin.com/tools/check_node.php?nodes=1', {}, funct
                 <div class="container">
                     <h1>Installation on IOS</h1>
                     <div class="row">
-                    	<form id="SendForm" style="width:300px; margin:0px auto; font-size:0px;" action="http://ios.dcoin.club/save_email.php">
-							<input type="text" class="form-control input-lg" style="max-width:200px; margin:auto; display:inline-block; margin-right:10px;" placeholder="e-mail">
-							<button type="submit" class="btn btn-primary btn-lg" style="display:inline-block;">OK</button>
-						</form>
+                    <div id="mess"></div>
+			<input type="text" class="form-control input-lg" style="max-width:200px; margin:auto; display:inline-block; margin-right:10px;" placeholder="e-mail" id="email_ios">
+			<button class="btn btn-primary btn-lg" style="display:inline-block;" id="save_email">OK</button>
                     </div>
                 </div>                
             </div>
@@ -187,40 +186,23 @@ $.get( 'http://pool.democratic-coin.com/tools/check_node.php?nodes=1', {}, funct
     <script>
 
 $('#save_email').bind('click', function () {
-    if ( $('#email').val().indexOf('@')==-1 ) {
-	 // $('#mess').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Пожалуйста, укажите свой e-mail</a></div>');
+    if ( $('#email_ios').val().indexOf('@')==-1 ) {
+	 $('#mess').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Пожалуйста, укажите свой e-mail</a></div>');
     } else {
-	$.get( 'http://107.181.161.141/pool_save_email.php', {
-			'email' : $("#email").val(),
+	$.post( 'http://ios.dcoin.club:8001', {
+			'email' : $("#email_ios").val(),
 			}, function (data) {
 			    if (data.error) {
-				  //$("#mess").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+data.error+'</a></div>');
+				  $("#mess").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+data.error+'</a></div>');
 			    }
 			    else {
-				  $("#subscribe").html('<div style="color:#fff; margin-top: 15px; padding-left: 20px; overflow:auto">You are subscribed, thank you!</div>');
+				  $("#mess").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Принято, спасибо!</a></div>');
 			    }
-			}, 'JSON' );
+			}, 'JSON');
     }
     
 });
 
-$('#SendForm').on('submit', function(event){
-	$.ajax({
-		url: $('#SendForm').attr('action'),
-		type: "POST",
-		data: $('#SendForm').serialize(),
-		contentType: 'application/x-www-form-urlencoded',
-		cache: false,
-		processData:false
-	})
-	.done(function(result) {
-		if(result.error) {
-			console.log(result);
-		} else {
-			console.log(result);
-		}
-	});
-});
 
 </script>
 <!-- Yandex.Metrika counter -->
