@@ -40,31 +40,7 @@
 </head>
 <body>
 <script src="../js/nav.js"></script>
-<script>
-var nodes_data = {};
-var authHeader = '111111111';
-$.get( 'http://pool.democratic-coin.com/tools/check_node.php?nodes=1', {}, function (data) {
 
-	for (var i=0; i<data.length; i++) {
-	
-	    nodes_data[data[i].host] = data[i].count;
-	    
-	     var geturl;
-	     
-	     $.ajax({
-		type: "GET",    
-		dataType: 'html',
-		url: data[i].host+'tools/check_node.php?table=info_block&col=2&row=0',    
-		headers:{'host_': data[i].host},
-		complete: function(data) {
-			$('.nodes > tbody:last').append('<tr><td>'+this.headers.host_+'</td><td>'+nodes_data[this.headers.host_]+'</td><td>'+data.responseText+'</td></tr>');
-			}
-		});
-	    
-	}
-},'JSON');
-
-</script>
 <div id="demo_top_wrapper">
 	<div id="demo_top">
 	</div>
