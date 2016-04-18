@@ -735,3 +735,57 @@ ul, li {
     margin-right: 15px;
     margin-bottom: 30px;
 }
+#team .spend {
+	background:none;
+	background-color:#4D9DE0;
+}
+#team .spend h1 {
+	border-top:1px solid #ffffff;
+	border-bottom:1px solid #ffffff;
+	color:#ffffff;
+	text-shadow:1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#team .spend .col-sm-6 {
+	padding-bottom:50px;
+}
+#team .spend .col-sm-4 {
+	cursor:default;
+	padding-top:0px;
+	padding-bottom:50px;
+}
+#team .spend .col-sm-4:hover {
+	background:none;
+}
+#team .team article {
+	cursor:default;
+	background-color:#ffffff;
+	box-shadow:0 8px 25px 0 rgba(0, 0, 0, 0.3);
+	border-radius:5px;
+	padding:10px;
+}
+#team .team article img {
+	display:block;
+	width:100%;
+	border-radius:5px 5px 0px 0px;
+}
+#team .team article strong {
+	display:block;
+	font-size:20px;
+	color:#F07A00;
+	text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);
+	font-weight:normal;
+	padding-top:10px;
+	padding-bottom:5px;
+}
+#team .team article span {
+	display:block;
+	font-size:14px;
+	font-style:italic;
+}
+#team .team article p {
+	font-size:14px;
+	font-weight:bold;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin:0px;
+}
