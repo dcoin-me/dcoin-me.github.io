@@ -435,10 +435,20 @@ ul, li {
 }
 .s1 p{font-size:30px;text-align:left;line-height:40px; margin-top:20px}
 .s2 p{font-size:30px;text-align:right;line-height:40px; margin-top:0px}
-.dcoin-target  p{font-size:30px;text-align:right;line-height:40px; margin:0px 20px 20px 20px; color:#fff; text-align:center}
+.dcoin-target  p{font-size:30px;line-height:40px; margin:0px 20px 20px 20px; color:#fff; text-align:center}
 
-.mining1 p{font-size:20px;text-align:right;line-height:30px; margin-top:0px}
-.mining1 h2{font-size:40px;text-align:right;line-height:30px; margin-top:0px}
+.mining1 p{
+	font-size:20px;
+	text-align:right;
+	line-height:30px;
+	margin-top:0px;
+}
+.mining1 h2{
+	font-size:40px;
+	text-align:right;
+	line-height:30px;
+	margin-top:0px
+}
 
 .align-right{text-align:right}
 .align-left{text-align:left}
@@ -788,4 +798,34 @@ ul, li {
 	padding-top:0px;
 	padding-bottom:0px;
 	margin:0px;
+}
+@media (max-width: 600px) {
+	.spend h1 {
+		font-size:20px;
+	}
+	h2{
+		text-align:center !important;
+	}
+	p{
+		text-align:center !important;
+	}
+	.more {
+		display:block;
+		max-width:200px;
+		border-radius:5px;
+		background-color:#CEACE7;
+		font-size:14px;
+		color:#000000 !important;
+		text-align:center;
+		text-decoration:none !important;
+		text-transform:uppercase;
+		padding:9px 10px;
+		margin:0px auto;
+		margin-top:10px;
+		margin-bottom:20px;
+	}
+	.carousel-indicators {
+		top:auto !important;
+		bottom:0px;
+	}
 }
