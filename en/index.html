@@ -589,7 +589,7 @@
 			    </span>
                             <div class="clearfix"></div>
 
-				<a class="btn btn-lg btn-success" target="_blank" href="http://pool.dcoin.club">
+				<a id="get_pool" class="btn btn-lg btn-success" target="_blank" href="">
 				  <span style="font-size:16px">Web Wallet</span></a>				  
 
     
@@ -832,6 +832,26 @@ $('#save_email').bind('click', function () {
 			}, 'JSON' );
     }
     
+});
+
+function GetPool() {
+	var id = $("#get_pool");
+	$.ajax({
+		url: 'http://getpool.dcoin.club/',
+		type: 'GET',
+		dataType: 'json',
+		crossDomain: true,
+		success: function(data){
+			id.attr("href", data.pool);
+		}    
+	});
+}
+$(document).ready(function(){
+	GetPool();
+	
+	$('#clients').bind('mouseenter', function () {
+		GetPool();
+	});
 });
 
 </script>

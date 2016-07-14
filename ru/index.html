@@ -921,17 +921,25 @@ $('#save_email').bind('click', function () {
     }
     
 });
-$('#get_pool').bind('click', function () {
+
+function GetPool() {
+	var id = $("#get_pool");
 	$.ajax({
 		url: 'http://getpool.dcoin.club/',
 		type: 'GET',
 		dataType: 'json',
 		crossDomain: true,
 		success: function(data){
-			console.log(data.pool);
+			id.attr("href", data.pool);
 		}    
 	});
-	return false;
+}
+$(document).ready(function(){
+	GetPool();
+	
+	$('#clients').bind('mouseenter', function () {
+		GetPool();
+	});
 });
 
 </script>
