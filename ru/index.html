@@ -925,10 +925,10 @@ $('#get_pool').bind('click', function () {
 	$.ajax({
 		url: 'http://getpool.dcoin.club/',
 		type: 'GET',
-		dataType: 'jsonp',
+		dataType: 'json',
 		crossDomain: true,
 		success: function(data){
-			console.log(data);
+			console.log(data.pool);
 		}    
 	});
 	return false;
