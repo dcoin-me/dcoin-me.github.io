@@ -922,13 +922,15 @@ $('#save_email').bind('click', function () {
     
 });
 $('#get_pool').bind('click', function () {
-	$.get( 'http://getpool.dcoin.club/', function (data) {
-		console.log(data.pool)
-		if (data.error) {
-		}
-		else {
-		}
-	}, 'JSON' );
+	$.ajax({
+		url: 'http://getpool.dcoin.club/',
+		type: 'GET',
+		dataType: 'jsonp',
+		crossDomain: true,
+		success: function(data){
+			console.log(data);
+		}    
+	});
 	return false;
 });
 
